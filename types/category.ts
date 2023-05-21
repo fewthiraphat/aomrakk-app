@@ -1,0 +1,16 @@
+export type category =
+  | "all"
+  | "income"
+  | "study"
+  | "entertain"
+  | "gift"
+  | "drinks"
+  | "food"
+  | "shirts"
+  | "traffic"
+  | "mobile"
+  | "beauty"
+  | "pets"
+  | "travel"
+  | "medical"
+  | "rent";
