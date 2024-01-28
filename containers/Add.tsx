@@ -10,7 +10,7 @@ import {
 import TypeCard from "../compoennts/TypeCard";
 import CategoryCard from "../compoennts/CategoryCard";
 import { ScrollView } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { category } from "../types/category";
 import PiggyBank from "../assets/piggy-bank.png";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -42,7 +42,9 @@ const Add = () => {
     }
   };
 
-  getData();
+  useEffect(() => {
+    getData()
+  }, [])
 
   const storeData = async (value: SpendingType) => {
     try {

@@ -9,6 +9,7 @@ interface FilterCardProps {
   label?: string;
   active?: boolean;
 }
+
 const FilterCard: React.FC<FilterCardProps> = ({
   icon,
   size = 40,
@@ -49,7 +50,6 @@ const styles = StyleSheet.create({
   textActive: {
     color: "#e1e1e1",
   },
-
   row: {
     alignItems: "center",
     flexDirection: "row",

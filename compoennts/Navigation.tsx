@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  Animated,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { Animated, StyleSheet, TouchableOpacity } from "react-native";
 import { CurvedBottomBarExpo } from "react-native-curved-bottom-bar";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { NavigationContainer } from "@react-navigation/native";
@@ -14,6 +10,7 @@ import Profile from "../containers/Profile";
 import { PlantTree } from "../containers/PlantTree";
 
 export default function Navigation() {
+
   const _renderIcon = (routeName: any, selectedTab: any) => {
     let icon = "";
 
@@ -61,56 +58,58 @@ export default function Navigation() {
   };
 
   return (
-    <NavigationContainer>
-      <CurvedBottomBarExpo.Navigator
-        type="DOWN"
-        style={styles.bottomBar}
-        shadowStyle={styles.shawdow}
-        height={55}
-        circleWidth={50}
-        bgColor="white"
-        initialRouteName="title1"
-        borderTopLeftRight
-        renderCircle={({ selectedTab, navigate }) => (
-          <Animated.View style={styles.btnCircleUp}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigate("เพิ่มรายการ")}
-            >
-              <Ionicons name={"cash"} color="green" size={25} />
-            </TouchableOpacity>
-          </Animated.View>
-        )}
-        tabBar={renderTabBar}
-      >
-        <CurvedBottomBarExpo.Screen
-          name="หน้าหลัก"
-          position="LEFT"
-          component={() => <Home />}
-        />
-        <CurvedBottomBarExpo.Screen
-          name="ปลูกต้นไม้"
-          component={() => <PlantTree />}
-          position="RIGHT"
-        />
-        <CurvedBottomBarExpo.Screen
-          name="Filter"
-          position="LEFT"
-          component={() => <Filter />}
-        />
-        <CurvedBottomBarExpo.Screen
-          name="เพิ่มรายการ"
-          component={() => <Add />}
-          position="CENTER"
-        />
-        <CurvedBottomBarExpo.Screen
-          name="Profile"
-          component={() => <Profile />}
-          position="RIGHT"
-        />
-      </CurvedBottomBarExpo.Navigator>
+    <>
+      <NavigationContainer>
+        <CurvedBottomBarExpo.Navigator
+          type="DOWN"
+          style={styles.bottomBar}
+          shadowStyle={styles.shawdow}
+          height={55}
+          circleWidth={50}
+          bgColor="white"
+          initialRouteName="title1"
+          borderTopLeftRight
+          renderCircle={({ selectedTab, navigate }) => (
+            <Animated.View style={styles.btnCircleUp}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigate("เพิ่มรายการ")}
+              >
+                <Ionicons name={"cash"} color="green" size={25} />
+              </TouchableOpacity>
+            </Animated.View>
+          )}
+          tabBar={renderTabBar}
+        >
 
-    </NavigationContainer>
+          <CurvedBottomBarExpo.Screen
+            name="หน้าหลัก"
+            position="LEFT"
+            component={() => <Home />}
+          />
+          <CurvedBottomBarExpo.Screen
+            name="ปลูกต้นไม้"
+            component={() => <PlantTree />}
+            position="RIGHT"
+          />
+          <CurvedBottomBarExpo.Screen
+            name="Filter"
+            position="LEFT"
+            component={() => <Filter />}
+          />
+          <CurvedBottomBarExpo.Screen
+            name="เพิ่มรายการ"
+            component={() => <Add />}
+            position="CENTER"
+          />
+          <CurvedBottomBarExpo.Screen
+            name="Profile"
+            component={() => <Profile />}
+            position="RIGHT"
+          />
+        </CurvedBottomBarExpo.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 
