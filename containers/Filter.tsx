@@ -96,7 +96,7 @@ const Filter = () => {
             if (itemTimestamp && !isNaN(itemTimestamp.getTime())) {
               itemTimestamp.setHours(0, 0, 0, 0);
               startDate.setHours(0, 0, 0, 0);
-              endDate.setHours(0, 0, 0, 0);
+              endDate.setHours(23, 59, 0, 0);
               return itemTimestamp >= startDate && itemTimestamp <= endDate;
             }
             return false;
@@ -115,6 +115,7 @@ const Filter = () => {
                 label={item.label}
                 type={item.category}
                 summary={String(item.amount)}
+                key={index}
               />
             );
           })}

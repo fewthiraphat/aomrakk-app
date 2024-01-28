@@ -11,7 +11,10 @@ import Character from "../compoennts/Character";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const Profile = () => {
+interface ProfileProps {
+  navigation?: any;
+}
+const Profile:React.FC<ProfileProps> = ({ navigation }) => {
   const [displayName, setDisplayName] = useState("");
   const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
@@ -55,7 +58,8 @@ const Profile = () => {
     };
     try {
       await AsyncStorage.setItem("@profile", JSON.stringify(profile));
-      Alert.alert("บันทึกข้อมูลเรียบร้อยแล้ว");
+      Alert.alert("บันทึกข้อมูลเรียบร้อยแล้ว")
+      navigation.navigate('TreeJa')
     } catch (e) {
       console.log(e);
     }

@@ -41,7 +41,6 @@ const Home = () => {
       setData(dataSpending);
       return dataSpending;
     }
-    console.log("no data jaa");
     return null;
   };
 
